@@ -8,7 +8,7 @@ app.use(morgan('common'))
 app.use(express.static('public',{}));
 
 app.get('/ping', (_req, res) => {
-  res.send(`pong`);
+  res.send('pong');
 });
 
 const port = process.env.PORT || 8080;
