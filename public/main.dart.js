@@ -26286,7 +26286,7 @@ return P.Z($async$$0,s)},
 $S:12}
 M.y2.prototype={
 J:function(a){var t=null,s=this.d
-return V.HL(new T.d2(new V.ai(32,32,32,32),T.jo(H.c([L.cB("Thanks",t,t,t,s.b,t),L.cB("Say a thank-you to you heros!",t,t,t,s.d,t),U.a0l("assets/images/children_line.png",F.cy(a,!1).a.a*0.5)],u.p),C.aP,t,C.cF,C.cG),t),this.c,4)}}
+return V.HL(new T.d2(new V.ai(32,32,32,32),T.jo(H.c([L.cB("Thanks",t,t,t,s.b,t),L.cB("Say a thank-you to your heroes!",t,t,t,s.d,t),U.a0l("assets/images/children_line.png",F.cy(a,!1).a.a*0.5)],u.p),C.aP,t,C.cF,C.cG),t),this.c,4)}}
 A.lE.prototype={
 J:function(a){var t=null,s=K.aI(a,!1),r=s.c,q=s.R,p=S.fd(t,t,t,t,t,X.a_O(C.z,C.oi,new M.p4("assets/images/bgdoodles.jpeg",1,t,t)),C.Z)
 return M.YQ(M.bS(t,new T.cs(C.z,t,t,T.jo(H.c([new T.bQ(t,16,t,t),new M.y2(r,q,t),new T.bQ(t,32,t,t),new R.pz(t),new T.bQ(t,16,t,t),new M.re(new A.L5(this,a),t)],u.p),C.aP,t,C.cE,C.aU),t),t,t,p,t,t,t,t,t))},
