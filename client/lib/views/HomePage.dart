@@ -27,7 +27,13 @@ class HomePage extends StatelessWidget {
         Column(
           children: <Widget>[
             SizedBox(height:16),
-            HeaderBanner(bgColor: bgColor, textTheme: textTheme),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Image.asset('assets/images/logo1.jpg', width:200),
+                HeaderBanner(bgColor: bgColor, textTheme: textTheme),
+                Image.asset('assets/images/logo2.jpg', width:300),
+            ],),
             SizedBox(height:32),
             RoundButton(
               onPressed:() async {
@@ -41,6 +47,11 @@ class HomePage extends StatelessWidget {
             Stack(
               children: <Widget>[
                 ImageCarousal(),
+                Positioned(
+                  bottom: 0,
+                  left: 0, right: 0,
+                  child: Text('')
+                )
               ],
             ),
             ]

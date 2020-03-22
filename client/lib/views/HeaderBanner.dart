@@ -22,7 +22,7 @@ class HeaderBanner extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text('Thanks',style: textTheme.headline5,),
+            Text('Gratitude to the healthcare teams!',style: textTheme.headline5,),
             Text('Say a thank-you to your heroes!', style:textTheme.headline6),
             Image.asset('assets/images/children_line.png', width: MediaQuery.of(context).size.width * 0.4),
           ],
