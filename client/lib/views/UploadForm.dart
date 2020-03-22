@@ -180,6 +180,39 @@ class _UploadFormState extends State<UploadForm> {
                             _isUploading=false;
                           });
                           Navigator.pop(context, true);
+                          
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Card(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: <Widget>[
+                                            Text('Thank you!', style: theme.textTheme.headline5),
+                                            Divider(height: 8),
+                                            Text('You image shall appear in the in the gallery in few minutes'),
+                                            Divider(height: 16),
+                                            FlatButton(
+                                              child: Text('OK'),
+                                              onPressed: (){Navigator.pop(context, true);}
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ),
+                                  ],
+                                )
+                              );
+                            },
+                          );
                         }
                       }
                     )

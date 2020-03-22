@@ -102,11 +102,13 @@ class HomePage extends StatelessWidget {
         encoded.replaceFirst(RegExp(r'data:image/[^;]+;base64,'), '');
     final imageName = imageFile.name;
 
+    var size=MediaQuery.of(context).size;
     showDialog(context: context,
       child: Container(
+        margin: EdgeInsets.all(8),
         child: Center(
           child: FractionallySizedBox(
-            widthFactor: 0.5,
+            widthFactor: size.width>660?0.5:1.0,
             child: UploadForm(imageName: imageName, imageDataBase64: imageDataBase64),
           ),
         ),
