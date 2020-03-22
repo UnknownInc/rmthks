@@ -1,6 +1,7 @@
 
 import 'dart:html';
 
+import 'package:client/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:convert';
@@ -18,7 +19,7 @@ class _AdminPageState extends State<AdminPage> {
   Future uploadsListFuture;
 
   Future _getUploads() async {
-    var url="/uploads";
+    var url=Constants.APIPREFIX + "uploads";
     try {
 
       var response = await http.get(url, 
@@ -44,7 +45,7 @@ class _AdminPageState extends State<AdminPage> {
   }
 
   Future _publish(Map item) async {
-    var url="/publish";
+    var url=Constants.APIPREFIX + "publish";
     try {
 
       var response = await http.post(url, 
@@ -119,12 +120,12 @@ class _AdminPageState extends State<AdminPage> {
                           color: theme.primaryColor,
                           child: Text('Login', style: theme.primaryTextTheme.bodyText1),
                           onPressed: () async {
-                            var url="/login";
-                            var body = json.encode({
-                              'username': username,
-                              'password': password
-                            });
                             try {
+                              var body = json.encode({
+                                'username': username,
+                                'password': password
+                              });
+                              var url=Constants.APIPREFIX + "login";
                               var response = await http.post(url, 
                                 headers: {"Content-Type": "application/json"},
                                 body: body

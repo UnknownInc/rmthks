@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:client/common/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -25,7 +26,7 @@ class _ImageCarousalState extends State<ImageCarousal> {
   }
 
   Future _loadPublished() async {
-    var url="/published";
+    var url=Constants.APIPREFIX+"published";
     try {
 
       var response = await http.get(url, 
@@ -60,8 +61,8 @@ class _ImageCarousalState extends State<ImageCarousal> {
         if (snapshot.hasData) {
           var items=snapshot.data;
           return Container(
-            width: size.height*0.4*16.0/9.0,
-            height: size.height*0.4,
+            width: size.height*0.6*16.0/9.0,
+            height: size.height*0.6,
             child: Swiper(
               itemBuilder: (BuildContext context,int index){
                 var item=items[index];
@@ -150,37 +151,76 @@ class _ImageCarousalState extends State<ImageCarousal> {
     );
   }
 
-  _showItem1(int index) {
-    return showDialog(context: context,
-      child: Container(
-        child: PhotoView(
-          imageProvider: NetworkImage("http://lorempixel.com/800/600/abstract/?q=$index"),
-        )
-      )
-    );
-  }
-
   _showItem(dynamic item) {
+    var theme=Theme.of(context);
+    var size=MediaQuery.of(context).size;
     return showDialog(context: context,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(32.0),
           child: AspectRatio(
             aspectRatio: 16/9,
-            child:Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage("http://via.placeholder.com/150x150"),
-                  fit: BoxFit.contain,
-                  alignment: Alignment.center,
+            child: Stack(
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow (
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 8.0, // has the effect of softening the shadow
+                          spreadRadius: 4.0, // has the effect of extending the shadow
+                          offset: Offset(0.0, 0.0,),
+                        )
+                      ],
+                    ),
+                    child: ClipRect(
+                      child: Banner(
+                        message:"",
+                        location: BannerLocation.bottomEnd,
+                        color: theme.primaryColor,
+                        textStyle: theme.primaryTextTheme.bodyText1,
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          //child: new Image.network(item["image"]),
+                          child:FadeInImage.assetNetwork(
+                            placeholder: 'assets/images/loading.gif',
+                            image: item["image"],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              child: Stack(
-                children: <Widget>[
-                  Center(child: Text("YOUR TEXT")),
-                  
-                ],
-              )  
+                Positioned.fill(
+                  top: 8,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child:Container(
+                      height: 32,
+                      width: size.width*0.25,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(32.0),
+                        border: Border.all(
+                            color: Colors.white,
+                            width: 1.0
+                        ),
+                        boxShadow: [
+                          BoxShadow (
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 8.0, // has the effect of softening the shadow
+                            spreadRadius: 4.0, // has the effect of extending the shadow
+                            offset: Offset(0.0, 0.0,),
+                          )
+                        ],
+                      ),
+                      child: Center(child: Text(item["name"]+" ("+item['age'].toString()+")", style: theme.textTheme.bodyText1))),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

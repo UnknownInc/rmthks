@@ -16,15 +16,15 @@ class HeaderBanner extends StatelessWidget {
       elevation: 4,
       color: bgColor,
       child: Padding(
-        padding: EdgeInsets.all(32),
+        padding: EdgeInsets.all(8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text('Thanks',style: textTheme.headline2,),
-            Text('Say a thank-you to your heroes!', style:textTheme.headline4),
-            Image.asset('assets/images/children_line.png', width: MediaQuery.of(context).size.width * 0.50),
+            Text('Thanks',style: textTheme.headline5,),
+            Text('Say a thank-you to your heroes!', style:textTheme.headline6),
+            Image.asset('assets/images/children_line.png', width: MediaQuery.of(context).size.width * 0.4),
           ],
         ),
       ),

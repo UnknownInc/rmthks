@@ -1,4 +1,5 @@
 
+import 'package:client/common/constants.dart';
 import 'package:client/views/RoundButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -162,7 +163,7 @@ class _UploadFormState extends State<UploadForm> {
                             "email": _emailController.text,
                             "image": widget.imageDataBase64
                           });
-                          var url= "/upload";
+                          var url= Constants.APIPREFIX + "upload";
                           print("posting to $url");
                           try {
                             var response = await http.post(url,

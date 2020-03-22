@@ -29,15 +29,20 @@ class HomePage extends StatelessWidget {
             SizedBox(height:16),
             HeaderBanner(bgColor: bgColor, textTheme: textTheme),
             SizedBox(height:32),
-            ImageCarousal(),
-            SizedBox(height: 16,),
             RoundButton(
               onPressed:() async {
                 var imageFile = await ImagePickerWeb.getImage(outputType: ImageType.file );
                 if (imageFile != null) {
                   collectDetails(context, imageFile);
                 }
-              }),
+              }
+            ),
+            SizedBox(height: 8,),
+            Stack(
+              children: <Widget>[
+                ImageCarousal(),
+              ],
+            ),
             ]
           ),
         ),
