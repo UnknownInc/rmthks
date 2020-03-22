@@ -18,7 +18,7 @@ class _AdminPageState extends State<AdminPage> {
   Future uploadsListFuture;
 
   Future _getUploads() async {
-    var url="http://127.0.0.1:8080/uploads";
+    var url="/uploads";
     try {
 
       var response = await http.get(url, 
@@ -44,7 +44,7 @@ class _AdminPageState extends State<AdminPage> {
   }
 
   Future _publish(Map item) async {
-    var url="http://127.0.0.1:8080/publish";
+    var url="/publish";
     try {
 
       var response = await http.post(url, 
@@ -119,7 +119,7 @@ class _AdminPageState extends State<AdminPage> {
                           color: theme.primaryColor,
                           child: Text('Login', style: theme.primaryTextTheme.bodyText1),
                           onPressed: () async {
-                            var url="http://127.0.0.1:8080/login";
+                            var url="/login";
                             var body = json.encode({
                               'username': username,
                               'password': password

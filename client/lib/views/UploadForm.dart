@@ -162,7 +162,7 @@ class _UploadFormState extends State<UploadForm> {
                             "email": _emailController.text,
                             "image": widget.imageDataBase64
                           });
-                          var url= "http://127.0.0.1:8080/upload";
+                          var url= "/upload";
                           print("posting to $url");
                           try {
                             var response = await http.post(url,

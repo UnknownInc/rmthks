@@ -26133,7 +26133,7 @@ al:function(){return new S.Cm(C.p)}}
 S.Cm.prototype={
 kY:function(){var t=0,s=P.a_(u.z),r,q=2,p,o=[],n=this,m,l,k,j,i,h,g,f
 var $async$kY=P.W(function(a,b){if(a===1){p=b
-t=q}while(true)switch(t){case 0:g="http://127.0.0.1:8080/uploads"
+t=q}while(true)switch(t){case 0:g="/uploads"
 q=4
 j=C.d.L(J.j9(n.e,":"),n.f)
 j=C.V.geO().bo(j)
@@ -26169,7 +26169,7 @@ return P.Z($async$kY,s)},
 nK:function(a){return this.Pw(a)},
 Pw:function(a){var t=0,s=P.a_(u.z),r,q=2,p,o=[],n=this,m,l,k,j,i,h,g
 var $async$nK=P.W(function(b,c){if(b===1){p=c
-t=q}while(true)switch(t){case 0:h="http://127.0.0.1:8080/publish"
+t=q}while(true)switch(t){case 0:h="/publish"
 q=4
 k=C.d.L(J.j9(n.e,":"),n.f)
 k=C.V.geO().bo(k)
@@ -26227,7 +26227,7 @@ $S:0}
 S.RS.prototype={
 $0:function(){var t=0,s=P.a_(u.P),r=1,q,p=[],o=this,n,m,l,k,j,i,h,g
 var $async$$0=P.W(function(a,b){if(a===1){q=b
-t=r}while(true)switch(t){case 0:k="http://127.0.0.1:8080/login"
+t=r}while(true)switch(t){case 0:k="/login"
 j=o.a
 i=u.N
 h=C.ap.ej(P.aD(["username",j.e,"password",j.f],i,i))
@@ -26320,7 +26320,7 @@ this.aZ()
 this.e=this.nD()},
 nD:function(){var t=0,s=P.a_(u.z),r,q=2,p,o=[],n,m,l,k,j,i,h
 var $async$nD=P.W(function(a,b){if(a===1){p=b
-t=q}while(true)switch(t){case 0:i="http://127.0.0.1:8080/published"
+t=q}while(true)switch(t){case 0:i="/published"
 q=4
 k=u.N
 t=7
@@ -26415,7 +26415,7 @@ case 2:g.ao(new V.W0(g))
 f=g.a
 j=u.N
 n=C.ap.ej(P.aD(["imagename",f.c,"name",g.e.a.a,"age",g.f.a.a,"email",g.r.a.a,"image",f.d],j,j))
-m="http://127.0.0.1:8080/upload"
+m="/upload"
 P.aR("posting to "+H.b(m))
 r=5
 t=8
