@@ -16,11 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyParser.json({limit:"50mb"})); //Used to parse JSON bodies
 
 function basicAuth(req, res, next) {
-  // make authenticate path public
-  if (req.path === '/users/authenticate') {
-      return next();
-  }
-
   // check for basic auth header
   if (!req.headers.authorization || req.headers.authorization.indexOf('Basic ') === -1) {
       return res.status(401).json({ message: 'Missing Authorization Header' });
@@ -83,9 +78,9 @@ app.post("/publish", basicAuth, async function(req, res) {
 });
 
 // Creates a client
-const storage = new Storage({
+const storage = new Storage(process.env.GCLOUDKEYFILE?{
   projectId: process.env.GOOGLE_CLOUD_PROJECT+'',
-  keyFilename: process.env.GCLOUDKEYFILE+''});
+  keyFilename: process.env.GCLOUDKEYFILE+''}:undefined);
 
 app.post("/upload", function(req, res) {
   var name = req.body.name.trim();
