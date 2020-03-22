@@ -4,21 +4,29 @@
   "description": "Simple image upload and gallary",
   "main": "server.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "dev": "nodemon --exec babel-node src/server.js",
-    "start": "node lib/server.js"
+    "build": "babel src -d dist",
+    "buildweb": "cd client && flutter build web --release && cp -vr build/web/* ../public/",
+    "dev": "nodemon -r dotenv/config --exec babel-node src/server.js",
+    "start": "node dist/server.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/storage": "^4.6.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "morgan": "^1.9.1"
+    "fast-crc32c": "^2.0.0",
+    "morgan": "^1.10.0",
+    "temp-dir": "^2.0.0",
+    "uuid": "^7.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
+    "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.2"
   }
 }
