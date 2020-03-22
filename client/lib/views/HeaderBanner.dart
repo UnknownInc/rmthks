@@ -9,6 +9,7 @@ class HeaderBanner extends StatelessWidget {
 
   final Color bgColor;
   final TextTheme textTheme;
+  //final Float width;
 
   @override
   Widget build(BuildContext context) {

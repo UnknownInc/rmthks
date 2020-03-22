@@ -1,7 +1,7 @@
 
 import 'dart:html';
 
-import 'package:client/common/constants.dart';
+import 'package:rmthks/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:convert';

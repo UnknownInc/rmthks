@@ -1,10 +1,10 @@
 import 'dart:html' as html;
 import 'dart:math';
 
-import 'package:client/views/HeaderBanner.dart';
-import 'package:client/views/ImageCarousal.dart';
-import 'package:client/views/RoundButton.dart';
-import 'package:client/views/UploadForm.dart';
+import 'package:rmthks/views/HeaderBanner.dart';
+import 'package:rmthks/views/ImageCarousal.dart';
+import 'package:rmthks/views/RoundButton.dart';
+import 'package:rmthks/views/UploadForm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -20,6 +20,34 @@ class HomePage extends StatelessWidget {
           var bgColor = theme.primaryColor;
           var textTheme = theme.primaryTextTheme;
           var size = MediaQuery.of(context).size;
+          var toprow=<Widget>[];
+
+           if (constraints.maxWidth>660)  {
+            toprow=<Widget>[
+              Image.asset('assets/images/logo1.jpg', width: min(200.0,constraints.maxWidth*0.2)),
+              HeaderBanner(bgColor: bgColor, textTheme: textTheme),
+              Image.asset('assets/images/logo2.jpg', width: min(200.0,constraints.maxWidth*0.2)),
+            ];
+           } else {
+             toprow=<Widget>[
+                    //if (constraints.maxWidth>660)  
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    HeaderBanner(bgColor: bgColor, textTheme: textTheme),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Image.asset('assets/images/logo1.jpg', width: 100),
+                        Image.asset('assets/images/logo2.jpg', width: 200),
+                      ],
+                    )
+                  ],
+                ),
+              ];
+           }
           print(size);
           return Container(
             decoration: BoxDecoration(
@@ -34,11 +62,8 @@ class HomePage extends StatelessWidget {
                 SizedBox(height:16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Image.asset('assets/images/logo1.jpg', width: (constraints.maxWidth>500? min(200.0,constraints.maxWidth*0.2):50)),
-                    HeaderBanner(bgColor: bgColor, textTheme: textTheme),
-                    Image.asset('assets/images/logo2.jpg', width:(constraints.maxWidth>500? min(200.0,constraints.maxWidth*0.2):50)),
-                ],),
+                  children: toprow,
+                ),
                 SizedBox(height:32),
                 RoundButton(
                   onPressed:() async {

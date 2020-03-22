@@ -1,6 +1,5 @@
-
-import 'package:client/common/constants.dart';
-import 'package:client/views/RoundButton.dart';
+import 'package:rmthks/common/constants.dart';
+import 'package:rmthks/views/RoundButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

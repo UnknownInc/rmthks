@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:client/common/constants.dart';
+import 'package:rmthks/common/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:photo_view/photo_view.dart';
 
 class ImageCarousal extends StatefulWidget{
   @override
