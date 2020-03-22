@@ -129,11 +129,11 @@ class _ImageCarousalState extends State<ImageCarousal> {
                 );
               },
               itemCount: items.length,
-              itemWidth: size.width*0.35,
+              //itemWidth: size.width*0.35,
               pagination: new SwiperPagination(),
               control: new SwiperControl(),
               viewportFraction: 0.7,
-              layout: SwiperLayout.STACK,
+              //layout: SwiperLayout.STACK,
               autoplay: true,
               autoplayDelay: 3000,
               onTap: (index){_showItem(items[index]);},
