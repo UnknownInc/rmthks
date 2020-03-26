@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import 'dart:math';
 
+import 'package:rmthks/common/MouseCursor.dart';
 import 'package:rmthks/views/HeaderBanner.dart';
 import 'package:rmthks/views/ImageCarousal.dart';
 import 'package:rmthks/views/RoundButton.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:image_picker_web/image_picker_web.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -24,7 +26,18 @@ class HomePage extends StatelessWidget {
 
            if (constraints.maxWidth>660)  {
             toprow=<Widget>[
-              Image.asset('assets/images/logo1.jpg', width: min(200.0,constraints.maxWidth*0.2)),
+              MouseCursor(
+                child: InkWell(
+                  hoverColor: Colors.blue,
+                  child: Image.asset('assets/images/logo1.jpg', width: min(200.0,constraints.maxWidth*0.2)),
+                  onTap: () async {
+                    const url = 'http://rareminds.in/';
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    }
+                  },
+                ),
+              ),
               HeaderBanner(bgColor: bgColor, textTheme: textTheme),
               Image.asset('assets/images/logo2.jpg', width: min(200.0,constraints.maxWidth*0.2)),
             ];
@@ -40,7 +53,16 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Image.asset('assets/images/logo1.jpg', width: 100),
+                        InkWell(
+                          hoverColor: Colors.blue,
+                          child: Image.asset('assets/images/logo1.jpg', width: 100),
+                          onTap: () async {
+                            const url = 'https://rareminds.in/';
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            }
+                          },
+                        ),
                         Image.asset('assets/images/logo2.jpg', width: 200),
                       ],
                     )
