@@ -141,6 +141,9 @@ app.get('/published',async (_req, res) => {
   res.json(items);
 });
 
+app.get('/like', async (_req, res)=>{
+  await storage.bucket('rmthks').read
+})
 app.get('/ping', async (_req, res) => {
   const [files] = await storage.bucket('rmthks').getFiles({prefix:'uploads', delimiter:'/'});
 

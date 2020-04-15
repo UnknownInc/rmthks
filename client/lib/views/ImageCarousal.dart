@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:like_button/like_button.dart';
 import 'package:rmthks/common/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _ImageCarousalState extends State<ImageCarousal> {
       );
       if (response.statusCode==200) {
         var items = json.decode(response.body);
-        print(items);
+        //print(items);
         return items;
       } else {
         print("Response status: ${response.statusCode}");
@@ -54,6 +55,7 @@ class _ImageCarousalState extends State<ImageCarousal> {
   Widget build(Object context) {
     var theme=Theme.of(context);
     var size=MediaQuery.of(context).size;
+    var buttonSize=25.0;
     return FutureBuilder(
       future: imageLoader,
       builder: (context, snapshot) {
@@ -97,7 +99,7 @@ class _ImageCarousalState extends State<ImageCarousal> {
                         ),
                       ),
                     ),
-                    Positioned.fill(
+                    Positioned(
                       top: 8,
                       child: Align(
                         alignment: Alignment.topCenter,
@@ -123,18 +125,19 @@ class _ImageCarousalState extends State<ImageCarousal> {
                           child: Center(child: Text(item["name"]+" ("+item['age'].toString()+")", style: theme.textTheme.bodyText1))),
                       ),
                     ),
-                    Image.asset('assets/images/red_ribbon.png', width:32)
+                    Image.asset('assets/images/red_ribbon.png', width:32),
                   ],
                 );
               },
               itemCount: items.length,
               //itemWidth: size.width*0.35,
-              pagination: new SwiperPagination(),
+              //pagination: SwiperPagination.fraction,
               control: new SwiperControl(),
               viewportFraction: 0.7,
               //layout: SwiperLayout.STACK,
               autoplay: true,
               autoplayDelay: 3000,
+              autoplayDisableOnInteraction: true,
               onTap: (index){_showItem(items[index]);},
             ),
           );
