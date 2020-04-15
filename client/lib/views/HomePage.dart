@@ -49,8 +49,9 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _prefs.then((prefs) => {
       this.setState(() { 
-        try{
-          _isLiked = prefs.getBool('rmthks_liked');
+        try {
+          var value = prefs.getBool('rmthks_liked');
+          _isLiked=value==null?false:value;
           print('p:'+_isLiked.toString());
         } catch(e) {
           print(e);
